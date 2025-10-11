@@ -1,0 +1,29 @@
+# Build artifacts
+bin/
+obj/
+*.ispac
+
+# Local IDE
+.vs/
+*.user
+*.suo
+*.cache
+
+# Database & backups
+*.mdf
+*.ldf
+*.ndf
+*.bak
+*.trn
+
+# Logs & temp
+*.log
+*.tmp
+
+# Secrets / env / local config
+.env
+*.dtsConfig
+parameters.json
+
+# Power BI (comment out if you use Git LFS)
+# *.pbix
