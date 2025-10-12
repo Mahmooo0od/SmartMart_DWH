@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ACER-PC.SmartMart_DWH"
+  DTS:DTSID="{CF5F7E39-D063-48F4-92B3-90D4CEC8DF7A}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ACER-PC;Initial Catalog=SmartMart_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-SmartMart_ETL-{CF5F7E39-D063-48F4-92B3-90D4CEC8DF7A}ACER-PC.SmartMart_DWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

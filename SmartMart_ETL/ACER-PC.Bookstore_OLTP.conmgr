@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ACER-PC.Bookstore_OLTP"
+  DTS:DTSID="{F5B822FB-B00D-424F-85DE-A3223341C4C0}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=ACER-PC;Initial Catalog=Bookstore_OLTP;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-SmartMart_ETL-{F5B822FB-B00D-424F-85DE-A3223341C4C0}ACER-PC.Bookstore_OLTP;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
