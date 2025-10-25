@@ -1,0 +1,451 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/ACER-PC;SmartMart_DWH",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "ACER-PC",
+            "database": "SmartMart_DWH"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "ServiceAccount",
+          "kind": "SQL",
+          "path": "acer-pc;SmartMart_DWH",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "dwh DimBranch",
+        "columns": [
+          {
+            "name": "BranchKey",
+            "dataType": "int64",
+            "sourceColumn": "BranchKey"
+          },
+          {
+            "name": "BranchCode",
+            "dataType": "string",
+            "sourceColumn": "BranchCode"
+          },
+          {
+            "name": "BranchName",
+            "dataType": "string",
+            "sourceColumn": "BranchName"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ACER-PC;SmartMart_DWH\",",
+                "    dwh_DimBranch = Source{[Schema=\"dwh\",Item=\"DimBranch\"]}[Data]",
+                "in",
+                "    dwh_DimBranch"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dwh DimCustomer",
+        "columns": [
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "CustomerCode",
+            "dataType": "string",
+            "sourceColumn": "CustomerCode"
+          },
+          {
+            "name": "FullName",
+            "dataType": "string",
+            "sourceColumn": "FullName"
+          },
+          {
+            "name": "City",
+            "dataType": "string",
+            "sourceColumn": "City"
+          },
+          {
+            "name": "Segment",
+            "dataType": "string",
+            "sourceColumn": "Segment"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "EndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "IsCurrent",
+            "dataType": "boolean",
+            "sourceColumn": "IsCurrent"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ACER-PC;SmartMart_DWH\",",
+                "    dwh_DimCustomer = Source{[Schema=\"dwh\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dwh_DimCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dwh DimDate",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isKey": true,
+            "sourceColumn": "Date"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName",
+            "sortByColumn": "Month"
+          },
+          {
+            "name": "Quarter",
+            "dataType": "int64",
+            "sourceColumn": "Quarter"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year"
+          },
+          {
+            "name": "IsWeekend",
+            "dataType": "boolean",
+            "sourceColumn": "IsWeekend"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ACER-PC;SmartMart_DWH\",",
+                "    dwh_DimDate = Source{[Schema=\"dwh\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dwh_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dwh DimProduct",
+        "columns": [
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "ProductCode",
+            "dataType": "string",
+            "sourceColumn": "ProductCode"
+          },
+          {
+            "name": "ProductName",
+            "dataType": "string",
+            "sourceColumn": "ProductName"
+          },
+          {
+            "name": "Category",
+            "dataType": "string",
+            "sourceColumn": "Category"
+          },
+          {
+            "name": "Brand",
+            "dataType": "string",
+            "sourceColumn": "Brand"
+          },
+          {
+            "name": "WarrantyMon",
+            "dataType": "int64",
+            "sourceColumn": "WarrantyMon"
+          },
+          {
+            "name": "StartDate",
+            "dataType": "dateTime",
+            "sourceColumn": "StartDate"
+          },
+          {
+            "name": "EndDate",
+            "dataType": "dateTime",
+            "sourceColumn": "EndDate"
+          },
+          {
+            "name": "IsCurrent",
+            "dataType": "boolean",
+            "sourceColumn": "IsCurrent"
+          },
+          {
+            "name": "SourceSystem",
+            "dataType": "string",
+            "sourceColumn": "SourceSystem"
+          },
+          {
+            "name": "SourceNaturalKey",
+            "dataType": "string",
+            "sourceColumn": "SourceNaturalKey"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ACER-PC;SmartMart_DWH\",",
+                "    dwh_DimProduct = Source{[Schema=\"dwh\",Item=\"DimProduct\"]}[Data]",
+                "in",
+                "    dwh_DimProduct"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dwh FactSales",
+        "columns": [
+          {
+            "name": "SalesID",
+            "dataType": "int64",
+            "sourceColumn": "SalesID"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "CustomerKey",
+            "dataType": "int64",
+            "sourceColumn": "CustomerKey"
+          },
+          {
+            "name": "BranchKey",
+            "dataType": "int64",
+            "sourceColumn": "BranchKey"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "double",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "Discount",
+            "dataType": "double",
+            "sourceColumn": "Discount"
+          },
+          {
+            "name": "CostAmount",
+            "dataType": "double",
+            "sourceColumn": "CostAmount"
+          },
+          {
+            "name": "TotalAmount",
+            "dataType": "double",
+            "sourceColumn": "TotalAmount"
+          },
+          {
+            "name": "InsertedAt",
+            "dataType": "dateTime",
+            "sourceColumn": "InsertedAt"
+          },
+          {
+            "name": "SourceName",
+            "dataType": "string",
+            "sourceColumn": "SourceName"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ACER-PC;SmartMart_DWH\",",
+                "    dwh_FactSales = Source{[Schema=\"dwh\",Item=\"FactSales\"]}[Data]",
+                "in",
+                "    dwh_FactSales"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Sales",
+            "expression": "SUM('dwh FactSales'[TotalAmount])",
+            "formatString": "#,##0.00",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Total Cost",
+            "expression": "SUM('dwh FactSales'[CostAmount])",
+            "formatString": "#,##0.00",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Total Qty",
+            "expression": "SUM('dwh FactSales'[Quantity])",
+            "formatString": "#,##0",
+            "displayFolder": "Counts"
+          },
+          {
+            "name": "Gross Profit",
+            "expression": "[Total Sales] - [Total Cost]",
+            "formatString": "#,##0.00",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Margin %",
+            "expression": "DIVIDE([Gross Profit],[Total Sales])",
+            "formatString": "0.00%",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Avg Price",
+            "expression": "DIVIDE([Total Sales],[Total Qty])",
+            "formatString": "#,##0.00",
+            "displayFolder": "Sales KPIs"
+          },
+          {
+            "name": "Orders",
+            "expression": "COUNTROWS('dwh FactSales')",
+            "formatString": "#,##0",
+            "displayFolder": "Counts"
+          },
+          {
+            "name": "Distinct Customers",
+            "expression": "DISTINCTCOUNT('dwh FactSales'[CustomerKey])",
+            "formatString": "#,##0",
+            "displayFolder": "Counts"
+          },
+          {
+            "name": "Distinct Products",
+            "expression": "DISTINCTCOUNT('dwh FactSales'[ProductKey])",
+            "formatString": "#,##0",
+            "displayFolder": "Counts"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "b978015e-5827-4043-b921-ee4ca6562e02",
+        "fromTable": "dwh FactSales",
+        "fromColumn": "ProductKey",
+        "toTable": "dwh DimProduct",
+        "toColumn": "ProductKey"
+      },
+      {
+        "name": "c518a2b7-0b4c-4fef-9ab4-5a64865d91a1",
+        "fromTable": "dwh FactSales",
+        "fromColumn": "DateKey",
+        "toTable": "dwh DimDate",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "20172ce0-31fc-4e57-aa73-8e4475724ce7",
+        "fromTable": "dwh FactSales",
+        "fromColumn": "BranchKey",
+        "toTable": "dwh DimBranch",
+        "toColumn": "BranchKey"
+      },
+      {
+        "name": "8fe310f4-bf43-44e9-bba4-62bb40f5e0f7",
+        "fromTable": "dwh FactSales",
+        "fromColumn": "CustomerKey",
+        "toTable": "dwh DimCustomer",
+        "toColumn": "CustomerKey"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
