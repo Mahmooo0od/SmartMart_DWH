@@ -25,5 +25,28 @@ obj/
 *.dtsConfig
 parameters.json
 
-# Power BI (comment out if you use Git LFS)
+# SSIS project user files
+*.dtproj.user
+*.dtsx.user
+
+# SSRS (reports) temp/user files
+*.rdl.data
+*.rptproj.user
+*.rsuser
+
+# SSAS (Tabular/MD) caches & user files
+**/Backup/*
+**/Workspace/*
+**/Tabular/*/Data
+*.smproj.user
+*.abf             
+*.bim.layout      
+*.bim.diagram     
+
+# Power BI 
 # *.pbix
+# *.pbit
+
+# Optional: OS junk
+Thumbs.db
+.DS_Store
